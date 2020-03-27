@@ -2,16 +2,16 @@
 class Jet < Formula
   desc "Convert source code into Docker images"
   homepage "https://github.com/lade-io/jet"
-  version "0.1.0"
+  version "0.2.0"
   bottle :unneeded
 
   if OS.mac?
-    url "https://github.com/lade-io/jet/releases/download/v0.1.0/jet-darwin-amd64.tar.gz"
-    sha256 "a546a46e36deb941f8135735e7d80510ec198559538f9f70189bf06405adcc72"
+    url "https://github.com/lade-io/jet/releases/download/v0.2.0/jet-darwin-amd64.tar.gz"
+    sha256 "424f7e2b58afa6e89b64ab013b9db8b195ef96a78bf6d635a938ff8102e98954"
   elsif OS.linux?
     if Hardware::CPU.intel?
-      url "https://github.com/lade-io/jet/releases/download/v0.1.0/jet-linux-amd64.tar.gz"
-      sha256 "d044718b8448902927bde05b694166a6a384c12f84afa5a47e6526fb4f29b31f"
+      url "https://github.com/lade-io/jet/releases/download/v0.2.0/jet-linux-amd64.tar.gz"
+      sha256 "c343bb89e7e50d82a0060d4f1f51c28069273b2930b77773ac1ca2e415dd5bba"
     end
   end
 
