@@ -2,16 +2,16 @@
 class Lade < Formula
   desc "Developer tool to manage your apps"
   homepage "https://github.com/lade-io/lade"
-  version "0.1.0"
+  version "0.1.1"
   bottle :unneeded
 
   if OS.mac?
-    url "https://github.com/lade-io/lade/releases/download/v0.1.0/lade-darwin-amd64.tar.gz"
-    sha256 "aaa8a0bdb861e756474a9106cda411707d1d89086dbc66618f26da4b2176a91e"
+    url "https://github.com/lade-io/lade/releases/download/v0.1.1/lade-darwin-amd64.tar.gz"
+    sha256 "298b4720c2b0be88822ea9894b2fa1cebe1c3216e6da11c947f3abdc33ae494a"
   elsif OS.linux?
     if Hardware::CPU.intel?
-      url "https://github.com/lade-io/lade/releases/download/v0.1.0/lade-linux-amd64.tar.gz"
-      sha256 "8a4f63b1c1b37b0a82de2021d43b4136fffe61d219243b63cfe0a8740ff6d147"
+      url "https://github.com/lade-io/lade/releases/download/v0.1.1/lade-linux-amd64.tar.gz"
+      sha256 "1d3d98f49da35facbfe9a1794d3bcd07012b5db9f9462466b69890077aa103fb"
     end
   end
 
