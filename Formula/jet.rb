@@ -8,28 +8,36 @@ class Jet < Formula
   version "0.2.2"
 
   on_macos do
-    url "https://github.com/lade-io/jet/releases/download/v0.2.2/jet-darwin-amd64.tar.gz"
-    sha256 "aaaaa8c5aff80ee1a9ae6a6289a72d7fe474d5b7f6d68d6e2f174f2fb4ea54b7"
-
-    def install
-      bin.install "jet"
-    end
-
     if Hardware::CPU.arm?
-      def caveats
-        <<~EOS
-          The darwin_arm64 architecture is not supported for the Jet
-          formula at this time. The darwin_amd64 binary may work in compatibility
-          mode, but it might not be fully supported.
-        EOS
+      url "https://github.com/lade-io/jet/releases/download/v0.2.2/jet-darwin-arm64.tar.gz"
+      sha256 "39b57596fe67f0d208b87131ad85f4fc1aa2127166ab5211bd88204bbd776adf"
+
+      def install
+        bin.install "jet"
+      end
+    end
+    if Hardware::CPU.intel?
+      url "https://github.com/lade-io/jet/releases/download/v0.2.2/jet-darwin-amd64.tar.gz"
+      sha256 "df8d41fae9b4eeacf20655a54d1034a2840472ce3bde12930c62834d6372ccbe"
+
+      def install
+        bin.install "jet"
       end
     end
   end
 
   on_linux do
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/lade-io/jet/releases/download/v0.2.2/jet-linux-arm64.tar.gz"
+      sha256 "e1554496011dcac87727e5335ae0e473e800250792585f3813c7faca0b352953"
+
+      def install
+        bin.install "jet"
+      end
+    end
     if Hardware::CPU.intel?
       url "https://github.com/lade-io/jet/releases/download/v0.2.2/jet-linux-amd64.tar.gz"
-      sha256 "cf4b455ff547d27628a04edbf296ce7e09cfe99b6db7e18992f7f5cbc4bc27f6"
+      sha256 "8258b110218ce3eba812fa187dc062a5512ae136bc99bcf36ebc51857231d745"
 
       def install
         bin.install "jet"
