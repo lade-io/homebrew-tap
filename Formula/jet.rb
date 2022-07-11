@@ -10,7 +10,7 @@ class Jet < Formula
   on_macos do
     if Hardware::CPU.arm?
       url "https://github.com/lade-io/jet/releases/download/v0.2.2/jet-darwin-arm64.tar.gz"
-      sha256 "9a3e534718f24b7e66e450546eda17473e3078e5c05ec701ddec593154163bbb"
+      sha256 "c4916de640c2f781d31075fc764480194077aa05958b687490c4a64fbd249fe5"
 
       def install
         bin.install "jet"
@@ -18,7 +18,7 @@ class Jet < Formula
     end
     if Hardware::CPU.intel?
       url "https://github.com/lade-io/jet/releases/download/v0.2.2/jet-darwin-amd64.tar.gz"
-      sha256 "64c7a097397d946c363c8dcefb4c58f574bf0331c640233c8a781308d5ed12dd"
+      sha256 "0dd8a6d0dc9d9929aa2c08e2625d32e11a77032762c6f9dbc93fea04a85cfb5a"
 
       def install
         bin.install "jet"
@@ -27,17 +27,17 @@ class Jet < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/lade-io/jet/releases/download/v0.2.2/jet-linux-amd64.tar.gz"
-      sha256 "40d3a5c52edf8ba79c8f9f22fe0e608257e70a0bf9674b33d10173d88e64a83d"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/lade-io/jet/releases/download/v0.2.2/jet-linux-arm64.tar.gz"
+      sha256 "5e2d0a49e7cb329b49ba44d51cc10a2bb89cf68d4150d0bffd89604a9d121b12"
 
       def install
         bin.install "jet"
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/lade-io/jet/releases/download/v0.2.2/jet-linux-arm64.tar.gz"
-      sha256 "0eada950a94ab33ae2b67fee0a054f069c42408144e343e40e45680749197633"
+    if Hardware::CPU.intel?
+      url "https://github.com/lade-io/jet/releases/download/v0.2.2/jet-linux-amd64.tar.gz"
+      sha256 "4d1230420a4398e326ec1dac34fef5af2ea0da39f1b8873410c2a98dec393956"
 
       def install
         bin.install "jet"
