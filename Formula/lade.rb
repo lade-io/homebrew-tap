@@ -8,17 +8,17 @@ class Lade < Formula
   version "0.1.2"
 
   on_macos do
-    if Hardware::CPU.intel?
-      url "https://github.com/lade-io/lade/releases/download/v0.1.2/lade-darwin-amd64.tar.gz"
-      sha256 "95a42e1be99d9488ad890c35e0fd7edd2ebf20075662ca68cf00604fa73a3687"
+    if Hardware::CPU.arm?
+      url "https://github.com/lade-io/lade/releases/download/v0.1.2/lade-darwin-arm64.tar.gz"
+      sha256 "0528b0c4d6c5259d61242a87882f20a8b1d73fbd6c420710af6063d5cb13d1fb"
 
       def install
         bin.install "lade"
       end
     end
-    if Hardware::CPU.arm?
-      url "https://github.com/lade-io/lade/releases/download/v0.1.2/lade-darwin-arm64.tar.gz"
-      sha256 "64e0db75d52b2bc894fa6f60c575cba16d295df22686fda940ada48394bf55d9"
+    if Hardware::CPU.intel?
+      url "https://github.com/lade-io/lade/releases/download/v0.1.2/lade-darwin-amd64.tar.gz"
+      sha256 "39e5dda7c8ea93a66748aca33423dcc2e2ecc6b4ab343f3c20f426f347999a0e"
 
       def install
         bin.install "lade"
@@ -29,7 +29,7 @@ class Lade < Formula
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
       url "https://github.com/lade-io/lade/releases/download/v0.1.2/lade-linux-arm64.tar.gz"
-      sha256 "32f9fa1cee67c76b0bd78243966f25c3247b2adfb92bb4a27ba68dee958a6f92"
+      sha256 "1ee35184b80140588fa81631c864a06c7bd98fc1858af2eb68b30bbc819bbe99"
 
       def install
         bin.install "lade"
@@ -37,7 +37,7 @@ class Lade < Formula
     end
     if Hardware::CPU.intel?
       url "https://github.com/lade-io/lade/releases/download/v0.1.2/lade-linux-amd64.tar.gz"
-      sha256 "96cfb6e0820a0ae1bac0fa648c17d068b30cb9f2845db5c9622bff066e70575e"
+      sha256 "187c713fb3b63e5ca41e935e65e580e935d0d205d92264dea30e59150ab07cd0"
 
       def install
         bin.install "lade"
