@@ -12,3 +12,4 @@ brew install <formula>
 ## Formulae
 
 * [jet](https://github.com/lade-io/jet)
+* [lade](https://github.com/lade-io/lade)
