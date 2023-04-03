@@ -5,20 +5,20 @@
 class Jet < Formula
   desc "Convert source code into Docker images"
   homepage "https://github.com/lade-io/jet"
-  version "0.2.3"
+  version "0.2.4"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/lade-io/jet/releases/download/v0.2.3/jet-darwin-arm64.tar.gz"
-      sha256 "65009d8c65d88e4192d61f4effd6263b2567eb8e47ff9ab78d0e83698ef15e68"
+      url "https://github.com/lade-io/jet/releases/download/v0.2.4/jet-darwin-arm64.tar.gz"
+      sha256 "764b23929b4bc99af9f9d128c5dd96f7b1d042ae32cc8c526531431c67dbb412"
 
       def install
         bin.install "jet"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/lade-io/jet/releases/download/v0.2.3/jet-darwin-amd64.tar.gz"
-      sha256 "3462997de33c7ecbbacc6e62b76744c4f344aaa8f40a9dfac55141335d869fd3"
+      url "https://github.com/lade-io/jet/releases/download/v0.2.4/jet-darwin-amd64.tar.gz"
+      sha256 "e25724a12c55e8f8760c7a8a7c6e4ac94684d2f2595c5e9dfc7bc0ab59508245"
 
       def install
         bin.install "jet"
@@ -27,17 +27,17 @@ class Jet < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/lade-io/jet/releases/download/v0.2.3/jet-linux-amd64.tar.gz"
-      sha256 "6fe63d38e3fd92b6d5efa0928027576864b903e6012f0aac97409634986ac018"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/lade-io/jet/releases/download/v0.2.4/jet-linux-arm64.tar.gz"
+      sha256 "ff4e074ecdd92cd8f33443699c1ca022f1888fedab0f28335dd8fc9b845557a6"
 
       def install
         bin.install "jet"
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/lade-io/jet/releases/download/v0.2.3/jet-linux-arm64.tar.gz"
-      sha256 "980fcae0e08e892736628cde0c526aa2e0fc3ccc14a76e3c7713f0b0ed0a3447"
+    if Hardware::CPU.intel?
+      url "https://github.com/lade-io/jet/releases/download/v0.2.4/jet-linux-amd64.tar.gz"
+      sha256 "ecb64ef464fdb43ee8e713522a3fe85cb654ef0e4462f645557807ddd7d809d5"
 
       def install
         bin.install "jet"
