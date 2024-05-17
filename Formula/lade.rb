@@ -5,20 +5,20 @@
 class Lade < Formula
   desc "Developer tool to manage your apps"
   homepage "https://github.com/lade-io/lade"
-  version "0.1.5"
+  version "0.1.6"
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/lade-io/lade/releases/download/v0.1.5/lade-darwin-arm64.tar.gz"
-      sha256 "820bbb8691ff6e5d232402bbbe7cce248b975af48562fd2c16d46771de8d9dbc"
+    on_intel do
+      url "https://github.com/lade-io/lade/releases/download/v0.1.6/lade-darwin-amd64.tar.gz"
+      sha256 "012a1ec934f3855ff11f69e8840d5828177fd4da6a4dc1f63d372fa59e9b7304"
 
       def install
         bin.install "lade"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/lade-io/lade/releases/download/v0.1.5/lade-darwin-amd64.tar.gz"
-      sha256 "b6106149a980c7de05b0488923bf6051622e5db9309eef2abe55f47e38dbd5ad"
+    on_arm do
+      url "https://github.com/lade-io/lade/releases/download/v0.1.6/lade-darwin-arm64.tar.gz"
+      sha256 "68fa289e1560b07be776448f63e85a9b90301839eec3db94312f607da3fc7210"
 
       def install
         bin.install "lade"
@@ -27,20 +27,24 @@ class Lade < Formula
   end
 
   on_linux do
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/lade-io/lade/releases/download/v0.1.5/lade-linux-arm64.tar.gz"
-      sha256 "d9eace9b45d1a89e639e1efe728c5eb2772d7e54bb555f624619f71f4f56dd44"
+    on_intel do
+      if Hardware::CPU.is_64_bit?
+        url "https://github.com/lade-io/lade/releases/download/v0.1.6/lade-linux-amd64.tar.gz"
+        sha256 "079a54412181c2d2a929ce574ac7fa75d472b5c8140957532cadf4b77cc894a9"
 
-      def install
-        bin.install "lade"
+        def install
+          bin.install "lade"
+        end
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/lade-io/lade/releases/download/v0.1.5/lade-linux-amd64.tar.gz"
-      sha256 "d18060639aa82dc3928cbb562c245e0b2088d50c6c472428c0d3f40dcffc0a83"
+    on_arm do
+      if Hardware::CPU.is_64_bit?
+        url "https://github.com/lade-io/lade/releases/download/v0.1.6/lade-linux-arm64.tar.gz"
+        sha256 "aa70e3e00b0383fe607486ae507040e530acfb894c6f72f979f5d896cd843491"
 
-      def install
-        bin.install "lade"
+        def install
+          bin.install "lade"
+        end
       end
     end
   end
