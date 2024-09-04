@@ -5,20 +5,20 @@
 class Lade < Formula
   desc "Developer tool to manage your apps"
   homepage "https://github.com/lade-io/lade"
-  version "0.1.6"
+  version "0.1.7"
 
   on_macos do
     on_intel do
-      url "https://github.com/lade-io/lade/releases/download/v0.1.6/lade-darwin-amd64.tar.gz"
-      sha256 "012a1ec934f3855ff11f69e8840d5828177fd4da6a4dc1f63d372fa59e9b7304"
+      url "https://github.com/lade-io/lade/releases/download/v0.1.7/lade-darwin-amd64.tar.gz"
+      sha256 "24bae1694f75aef3367a17777707a8963687845b7b2068dcd08c13edf813eb34"
 
       def install
         bin.install "lade"
       end
     end
     on_arm do
-      url "https://github.com/lade-io/lade/releases/download/v0.1.6/lade-darwin-arm64.tar.gz"
-      sha256 "68fa289e1560b07be776448f63e85a9b90301839eec3db94312f607da3fc7210"
+      url "https://github.com/lade-io/lade/releases/download/v0.1.7/lade-darwin-arm64.tar.gz"
+      sha256 "4c65aff1705b02870d40027895f8d9c22ce201d7c3c4ff39d4ec70a14a0b3902"
 
       def install
         bin.install "lade"
@@ -29,8 +29,8 @@ class Lade < Formula
   on_linux do
     on_intel do
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/lade-io/lade/releases/download/v0.1.6/lade-linux-amd64.tar.gz"
-        sha256 "079a54412181c2d2a929ce574ac7fa75d472b5c8140957532cadf4b77cc894a9"
+        url "https://github.com/lade-io/lade/releases/download/v0.1.7/lade-linux-amd64.tar.gz"
+        sha256 "a0c322203031322bed71a168831bf36a381c7aa4c9faad66b199179615263683"
 
         def install
           bin.install "lade"
@@ -39,8 +39,8 @@ class Lade < Formula
     end
     on_arm do
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/lade-io/lade/releases/download/v0.1.6/lade-linux-arm64.tar.gz"
-        sha256 "aa70e3e00b0383fe607486ae507040e530acfb894c6f72f979f5d896cd843491"
+        url "https://github.com/lade-io/lade/releases/download/v0.1.7/lade-linux-arm64.tar.gz"
+        sha256 "c65998d3cb9f5664743124d8c5dd930bf5849463f722ad54fffc06aae5a35474"
 
         def install
           bin.install "lade"
