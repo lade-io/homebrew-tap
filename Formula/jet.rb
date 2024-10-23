@@ -5,20 +5,20 @@
 class Jet < Formula
   desc "Convert source code into Docker images"
   homepage "https://github.com/lade-io/jet"
-  version "0.2.5"
+  version "0.2.6"
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/lade-io/jet/releases/download/v0.2.5/jet-darwin-arm64.tar.gz"
-      sha256 "2563ccc4821c83bcffa6d457b518cc45870eb37c47a33f4253f2c47fd9e81099"
+    on_intel do
+      url "https://github.com/lade-io/jet/releases/download/v0.2.6/jet-darwin-amd64.tar.gz"
+      sha256 "818857f4a6601a998879ae4242bbc12b2bddf938424716f986125877595aeab3"
 
       def install
         bin.install "jet"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/lade-io/jet/releases/download/v0.2.5/jet-darwin-amd64.tar.gz"
-      sha256 "8067f1766d3ac99bb83d1770f1beb5a579f176a53b2282adbf4fb89c8ce05270"
+    on_arm do
+      url "https://github.com/lade-io/jet/releases/download/v0.2.6/jet-darwin-arm64.tar.gz"
+      sha256 "4c1920d8de88efb145290f4e2360e8f65b1f77b7735568e5cb3da006d42dd37a"
 
       def install
         bin.install "jet"
@@ -27,20 +27,24 @@ class Jet < Formula
   end
 
   on_linux do
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/lade-io/jet/releases/download/v0.2.5/jet-linux-arm64.tar.gz"
-      sha256 "abac96a2f5727197ce599836eda27bdee6dda94b159a4868fed159e1a485b266"
+    on_intel do
+      if Hardware::CPU.is_64_bit?
+        url "https://github.com/lade-io/jet/releases/download/v0.2.6/jet-linux-amd64.tar.gz"
+        sha256 "1a9ceba538177db4ebdbda2a7b47eced6dc21c0070a047c36890c08662eb94e2"
 
-      def install
-        bin.install "jet"
+        def install
+          bin.install "jet"
+        end
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/lade-io/jet/releases/download/v0.2.5/jet-linux-amd64.tar.gz"
-      sha256 "a300d77e71416b9501c5861ba8cf835d939a585dc0619e9db9f74b6d99905c93"
+    on_arm do
+      if Hardware::CPU.is_64_bit?
+        url "https://github.com/lade-io/jet/releases/download/v0.2.6/jet-linux-arm64.tar.gz"
+        sha256 "e26d0d2e918a1e62548c0b2553201e64d8a57afe99b66a47ddf12cb550585e45"
 
-      def install
-        bin.install "jet"
+        def install
+          bin.install "jet"
+        end
       end
     end
   end
