@@ -5,20 +5,20 @@
 class Lade < Formula
   desc "Developer tool to manage your apps"
   homepage "https://github.com/lade-io/lade"
-  version "0.1.8"
+  version "0.1.9"
 
   on_macos do
-    on_intel do
-      url "https://github.com/lade-io/lade/releases/download/v0.1.8/lade-darwin-amd64.tar.gz"
-      sha256 "55c2576277cea19ca43c43a4916a756b9a396573ab8d47c5777f07e3b88b7ecf"
+    if Hardware::CPU.intel?
+      url "https://github.com/lade-io/lade/releases/download/v0.1.9/lade-darwin-amd64.tar.gz"
+      sha256 "a1fc9e84093b6cd46cf8cd9824fb24d92a2273e77214bb0850c2fb933cb118f0"
 
       def install
         bin.install "lade"
       end
     end
-    on_arm do
-      url "https://github.com/lade-io/lade/releases/download/v0.1.8/lade-darwin-arm64.tar.gz"
-      sha256 "e23c60096e89f6f6ff53ac5ee7e16c370b02fa93e11821be87d648d047889c60"
+    if Hardware::CPU.arm?
+      url "https://github.com/lade-io/lade/releases/download/v0.1.9/lade-darwin-arm64.tar.gz"
+      sha256 "532544484bcdea9f916131e519ededb86a8cfb013cc39cf2b1897d799ce32693"
 
       def install
         bin.install "lade"
@@ -27,20 +27,20 @@ class Lade < Formula
   end
 
   on_linux do
-    on_intel do
+    if Hardware::CPU.intel?
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/lade-io/lade/releases/download/v0.1.8/lade-linux-amd64.tar.gz"
-        sha256 "d2ebfe14977e849628eb22390678d05bc6887c236083df2d6fa907f98b207392"
+        url "https://github.com/lade-io/lade/releases/download/v0.1.9/lade-linux-amd64.tar.gz"
+        sha256 "296f14abed4459436dac3942f562fedcfc827df63d69196a297a368dd60f3e92"
 
         def install
           bin.install "lade"
         end
       end
     end
-    on_arm do
+    if Hardware::CPU.arm?
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/lade-io/lade/releases/download/v0.1.8/lade-linux-arm64.tar.gz"
-        sha256 "a34ab349f57dbd902c2bd4b10ead80f82f5a824ecd45868fc74e75684af33739"
+        url "https://github.com/lade-io/lade/releases/download/v0.1.9/lade-linux-arm64.tar.gz"
+        sha256 "db62c94a9054c7f04274c8d3f10e85cda81bd1939810c6385d43b22ba2472417"
 
         def install
           bin.install "lade"
